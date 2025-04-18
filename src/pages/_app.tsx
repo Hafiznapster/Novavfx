@@ -65,18 +65,13 @@ const theme = {
 function MyApp({ Component, pageProps }: AppProps) {
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    // Reduced loading time for faster experience
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2500); // Significantly reduced duration for faster loading
-
-    return () => clearTimeout(timer);
-  }, []);
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+  };
 
   return (
     <ThemeProvider theme={theme}>
-      <LoadingScreen onLoadingComplete={() => {}} />
+      {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
       <div style={{ visibility: isLoading ? 'hidden' : 'visible', opacity: isLoading ? 0 : 1, transition: 'opacity 0.5s ease-in-out' }}>
         <Component {...pageProps} />
       </div>
