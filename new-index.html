@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVA VFX - Visual Effects Studio</title>
+    <meta name="description" content="NOVAVFX - Creating Visual Excellence">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/_next/static/css/852cf248cecdb946.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #F5F2EA;
+        }
+        
+        /* Hide loading screen completely */
+        .sc-dCVDEO, .elJGho, [class*="LoadingScreen"], [id*="loading"], [class*="loading"],
+        div[class^="sc-"][class*="Loading"], div[class^="sc-"][class*="loading"] {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            height: 0 !important;
+            width: 0 !important;
+            position: absolute !important;
+            z-index: -9999 !important;
+            pointer-events: none !important;
+        }
+        
+        /* Force main content to be visible */
+        #__next > div, #__next > div > div, .sc-bpSLYx, .fmKgih {
+            visibility: visible !important;
+            opacity: 1 !important;
+            display: block !important;
+            transform: none !important;
+        }
+        
+        /* Add the loaded and show-content classes */
+        .sc-bpSLYx.fmKgih {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        
+        /* Override any loading animations */
+        @keyframes fadeIn { from { opacity: 1; } to { opacity: 1; } }
+        @keyframes scaleUp { from { opacity: 1; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 1; } to { opacity: 1; } }
+    </style>
+    <script>
+        // Immediately add the loaded and show-content classes when the page loads
+        window.addEventListener('DOMContentLoaded', function() {
+            // Find the main content container
+            var mainContent = document.querySelector('.sc-bpSLYx');
+            if (mainContent) {
+                mainContent.classList.add('loaded');
+                mainContent.classList.add('show-content');
+            }
+            
+            // Remove any loading screens
+            var loadingScreens = document.querySelectorAll('.sc-dCVDEO, .elJGho, [class*="LoadingScreen"]');
+            loadingScreens.forEach(function(screen) {
+                if (screen) {
+                    screen.style.display = 'none';
+                    screen.style.visibility = 'hidden';
+                    screen.style.opacity = '0';
+                    screen.parentNode.removeChild(screen);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="__next">
+        <!-- The Next.js app will be mounted here -->
+    </div>
+
+    <!-- Load the Next.js scripts -->
+    <script defer nomodule src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script>
+    <script src="/_next/static/chunks/webpack-19ebbd27f467d03d.js" defer></script>
+    <script src="/_next/static/chunks/framework-21a7ded87e45f3d9.js" defer></script>
+    <script src="/_next/static/chunks/main-04104d75f6814829.js" defer></script>
+    <script src="/_next/static/chunks/pages/_app-407d6cb2f3af801a.js" defer></script>
+    <script src="/_next/static/chunks/167-4c4125b3fe1aeef7.js" defer></script>
+    <script src="/_next/static/chunks/pages/index-70de13ba98f72214.js" defer></script>
+    <script src="/_next/static/YeMafd1NmvDn5i8R2l06z/_buildManifest.js" defer></script>
+    <script src="/_next/static/YeMafd1NmvDn5i8R2l06z/_ssgManifest.js" defer></script>
+</body>
+</html>

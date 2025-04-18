@@ -1,7 +1,5 @@
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
-import { useEffect, useState } from 'react';
-import LoadingScreen from '@/components/LoadingScreen';
 import '@/styles/globals.css';
 
 const theme = {
@@ -63,18 +61,9 @@ const theme = {
 };
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [isLoading, setIsLoading] = useState(true);
-
-  const handleLoadingComplete = () => {
-    setIsLoading(false);
-  };
-
   return (
     <ThemeProvider theme={theme}>
-      {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
-      <div style={{ visibility: isLoading ? 'hidden' : 'visible', opacity: isLoading ? 0 : 1, transition: 'opacity 0.5s ease-in-out' }}>
-        <Component {...pageProps} />
-      </div>
+      <Component {...pageProps} />
     </ThemeProvider>
   );
 }
