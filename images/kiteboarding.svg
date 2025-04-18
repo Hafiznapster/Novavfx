@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <!-- Layered 3D Element - Security Eye/Camera -->
+  <!-- Base Layer -->
+  <ellipse cx="200" cy="220" rx="120" ry="40" fill="#F5B95F" opacity="0.7" />
+  
+  <!-- Middle Layers -->
+  <path d="M140 200 Q 200 150 260 200 Q 200 250 140 200Z" fill="#E8A948" opacity="0.8" />
+  <path d="M150 190 Q 200 150 250 190 Q 200 230 150 190Z" fill="#F5D6A8" opacity="0.9" />
+  <path d="M160 180 Q 200 150 240 180 Q 200 210 160 180Z" fill="#F5F2EA" opacity="0.9" />
+  
+  <!-- Camera Lens -->
+  <circle cx="200" cy="180" r="30" fill="#000" />
+  <circle cx="200" cy="180" r="25" fill="#1A365D" />
+  <circle cx="200" cy="180" r="15" fill="#000" />
+  <circle cx="190" cy="170" r="5" fill="#FFFFFF" opacity="0.7" />
+  
+  <!-- Lens Reflection -->
+  <ellipse cx="200" cy="180" rx="10" ry="10" fill="#2C5282" opacity="0.7" />
+  
+  <!-- Decorative Elements -->
+  <circle cx="200" cy="180" r="35" fill="none" stroke="#F5B95F" stroke-width="3" />
+  
+  <!-- Outer Ring -->
+  <circle cx="200" cy="180" r="45" fill="none" stroke="#000" stroke-width="2" stroke-dasharray="2 4" />
+</svg>

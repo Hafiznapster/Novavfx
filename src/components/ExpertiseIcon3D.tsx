@@ -14,12 +14,12 @@ interface ExpertiseIconProps {
 const Shape = ({ color }: { color: string }) => {
   const meshRef = useRef<THREE.Mesh>(null);
   const materialRef = useRef<THREE.MeshStandardMaterial>(null);
-  
+
   // Create a unique shape based on the color hash
   const geometry = useMemo(() => {
     const colorHash = color.replace('#', '');
     const hashSum = colorHash.split('').reduce((sum, char) => sum + char.charCodeAt(0), 0);
-    
+
     // Choose geometry based on hash with more detailed variations
     switch (hashSum % 5) {
       case 0: return new THREE.OctahedronGeometry(1, 2); // More detailed diamond
@@ -30,25 +30,25 @@ const Shape = ({ color }: { color: string }) => {
       default: return new THREE.SphereGeometry(1, 64, 64); // High-res fallback
     }
   }, [color]);
-  
+
   // Enhanced animation with more dynamic movement
   useFrame((state) => {
     if (meshRef.current && materialRef.current) {
       const time = state.clock.getElapsedTime();
-      
+
       // Enhanced smooth rotation with easing
       const rotationSpeed = 0.15;
       meshRef.current.rotation.y = Math.sin(time * rotationSpeed) * 0.3 + time * 0.05;
       meshRef.current.rotation.x = Math.cos(time * rotationSpeed * 0.8) * 0.2;
       meshRef.current.rotation.z = Math.sin(time * rotationSpeed * 0.6) * 0.1;
-      
+
       // Improved floating motion with multiple harmonics
       const floatAmplitude = 0.03;
-      meshRef.current.position.y = 
-        Math.sin(time * 0.4) * floatAmplitude + 
+      meshRef.current.position.y =
+        Math.sin(time * 0.4) * floatAmplitude +
         Math.sin(time * 0.2) * floatAmplitude * 0.5;
       meshRef.current.position.x = Math.cos(time * 0.3) * floatAmplitude * 0.7;
-      
+
       // Dynamic material properties with smoother transitions
       const pulseSpeed = 0.4;
       materialRef.current.metalness = 0.9 + Math.sin(time * pulseSpeed) * 0.08;
@@ -60,16 +60,16 @@ const Shape = ({ color }: { color: string }) => {
   return (
     <mesh ref={meshRef} position={[0, 0, 0]} scale={0.8}>
       <primitive object={geometry} attach="geometry" />
-      <meshStandardMaterial 
+      <meshStandardMaterial
         ref={materialRef}
-        color={color} 
-        metalness={0.8} 
-        roughness={0.2} 
+        color={color}
+        metalness={0.8}
+        roughness={0.2}
         envMapIntensity={1.5}
         transparent
         opacity={0.9}
         side={THREE.DoubleSide}
-      >
+      />
     </mesh>
   );
 };
@@ -123,13 +123,13 @@ const IconContainer = styled.div`
   margin-bottom: 25px;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(8px);
-  box-shadow: 
+  box-shadow:
     inset 0 0 25px rgba(255, 255, 255, 0.08),
     0 5px 15px rgba(0, 0, 0, 0.2),
     0 0 40px rgba(255, 255, 255, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   transform-origin: center center;
-  
+
   canvas {
     touch-action: none;
     outline: none;
@@ -137,7 +137,7 @@ const IconContainer = styled.div`
     transform: scale(1.2);
     transition: transform 0.3s ease;
   }
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -145,8 +145,8 @@ const IconContainer = styled.div`
     border-radius: 50%;
     padding: 1.5px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), transparent);
-    -webkit-mask: 
-      linear-gradient(#fff 0 0) content-box, 
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
@@ -155,7 +155,7 @@ const IconContainer = styled.div`
 
   &:hover {
     transform: translateY(-5px) scale(1.05);
-    box-shadow: 
+    box-shadow:
       inset 0 0 30px rgba(255, 255, 255, 0.12),
       0 8px 20px rgba(0, 0, 0, 0.25),
       0 0 50px rgba(255, 255, 255, 0.2);
@@ -171,14 +171,14 @@ const IconText = styled.span`
   font-size: 2rem;
   z-index: 2;
   mix-blend-mode: overlay;
-  text-shadow: 
+  text-shadow:
     0 0 15px rgba(255, 255, 255, 0.6),
     0 0 30px rgba(255, 255, 255, 0.3);
   transition: transform 0.3s ease, text-shadow 0.3s ease;
 
   ${IconContainer}:hover & {
     transform: scale(1.1);
-    text-shadow: 
+    text-shadow:
       0 0 20px rgba(255, 255, 255, 0.8),
       0 0 40px rgba(255, 255, 255, 0.4);
   }

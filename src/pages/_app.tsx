@@ -10,6 +10,7 @@ const theme = {
     secondary: '#F5B95F',
     accent: '#E8A948',
     background: '#F5F2EA',
+    backgroundDark: '#0a0a0a',
     backgroundLight: '#FBF8F1',
     text: '#000000',
     textSecondary: '#555555',
@@ -75,7 +76,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider theme={theme}>
-      <LoadingScreen isLoading={isLoading} />
+      <LoadingScreen onLoadingComplete={() => {}} />
       <div style={{ visibility: isLoading ? 'hidden' : 'visible', opacity: isLoading ? 0 : 1, transition: 'opacity 0.5s ease-in-out' }}>
         <Component {...pageProps} />
       </div>

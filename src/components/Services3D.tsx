@@ -25,7 +25,7 @@ const Services3D = ({ services }: { services: any[] }) => {
           Crafting visual magic for films, TV shows, commercials, and digital content
         </ServicesSubtitle>
       </ServicesHeader>
-      
+
       <ServicesGrid>
         {services.map((service, index) => (
           <ServiceCard key={service.title} service={service} index={index} />
@@ -35,9 +35,9 @@ const Services3D = ({ services }: { services: any[] }) => {
   );
 };
 
-const ServiceCard = ({ service, index }: ServiceProps & { service: any }) => {
+const ServiceCard = ({ service, index }: { service: any, index: number }) => {
   const [isHovered, setIsHovered] = useState(false);
-  
+
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: (i: number) => ({
@@ -74,11 +74,11 @@ const ServiceCard = ({ service, index }: ServiceProps & { service: any }) => {
         <ServiceDescription>{service.description}</ServiceDescription>
       </ServiceContent>
       <ServiceNumber style={{ color: `${service.color}30` }}>0{index + 1}</ServiceNumber>
-      
+
       {/* Animated glow effect on hover */}
       <AnimatePresence>
         {isHovered && (
-          <GlowEffect 
+          <GlowEffect
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -96,7 +96,7 @@ const ServicesContainer = styled.section`
   background: #0a0a0f;
   position: relative;
   overflow: hidden;
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -104,7 +104,7 @@ const ServicesContainer = styled.section`
     left: 0;
     width: 100%;
     height: 100%;
-    background: 
+    background:
       radial-gradient(circle at 20% 30%, rgba(0, 229, 255, 0.08) 0%, transparent 50%),
       radial-gradient(circle at 80% 70%, rgba(213, 0, 249, 0.08) 0%, transparent 50%),
       radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
@@ -132,7 +132,7 @@ const ServicesTitle = styled.h2`
   background-clip: text;
   text-fill-color: transparent;
   letter-spacing: -0.5px;
-  
+
   @media (max-width: 768px) {
     font-size: 2.5rem;
   }
@@ -142,7 +142,7 @@ const ServicesSubtitle = styled.p`
   font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
-  
+
   @media (max-width: 768px) {
     font-size: 1rem;
   }
@@ -152,7 +152,7 @@ const ServicesGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 30px;
-  
+
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
@@ -171,7 +171,7 @@ const ServiceCardContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -196,8 +196,8 @@ const ServiceCardContainer = styled(motion.div)`
     border-radius: 24px;
     padding: 2px;
     background: linear-gradient(135deg, var(--color), transparent);
-    -webkit-mask: 
-      linear-gradient(#fff 0 0) content-box, 
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;

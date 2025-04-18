@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 interface Superman3DCardProps {
   coverImage: string;
-  titleImage: string;
-  characterImage: string;
+  titleImage?: string;
+  characterImage?: string;
   title: string;
   description: string;
   category: string;
@@ -24,16 +24,20 @@ const Superman3DCard = ({
         <Wrapper>
           <CoverImage src={coverImage} alt={title} />
         </Wrapper>
-        <TitleImage
-          src={titleImage}
-          alt={title}
-          className="title"
-        />
-        <CharacterImage
-          src={characterImage}
-          alt={title}
-          className="character"
-        />
+        {titleImage && (
+          <TitleImage
+            src={titleImage}
+            alt={title}
+            className="title"
+          />
+        )}
+        {characterImage && (
+          <CharacterImage
+            src={characterImage}
+            alt={title}
+            className="character"
+          />
+        )}
         <ContentOverlay>
           <Category>{category}</Category>
           <Title>{title}</Title>

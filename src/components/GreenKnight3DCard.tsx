@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 interface GreenKnight3DCardProps {
   coverImage: string;
-  titleImage: string;
+  titleImage?: string;
   title: string;
   description: string;
   category: string;
@@ -22,11 +22,13 @@ const GreenKnight3DCard = ({
         <Wrapper>
           <CoverImage src={coverImage} alt={title} />
         </Wrapper>
-        <TitleImage
-          src={titleImage}
-          alt={title}
-          className="title"
-        />
+        {titleImage && (
+          <TitleImage
+            src={titleImage}
+            alt={title}
+            className="title"
+          />
+        )}
         <ContentOverlay>
           <Category>{category}</Category>
           <Title>{title}</Title>

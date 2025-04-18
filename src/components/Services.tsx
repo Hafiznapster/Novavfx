@@ -72,7 +72,7 @@ const Services = ({ services }: { services: any[] }) => {
   );
 };
 
-const ServiceCard = ({ service, index }: ServiceProps & { service: any }) => {
+const ServiceCard = ({ service, index }: { service: any, index: number }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   // Add some example features if they don't exist
@@ -142,7 +142,7 @@ const ServiceCard = ({ service, index }: ServiceProps & { service: any }) => {
               transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
               <FeaturesList>
-                {features.map((feature, i) => (
+                {features.map((feature: string, i: number) => (
                   <FeatureItem
                     key={i}
                     initial={{ opacity: 0, x: -20 }}

@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 interface Batman3DCardProps {
   coverImage: string;
-  titleImage: string;
-  characterImage: string;
+  titleImage?: string;
+  characterImage?: string;
   title: string;
   description: string;
   category: string;

@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react';
-import { DotLottiePlayer } from '@lottiefiles/dotlottie-react';
+import { Player as DotLottiePlayer } from '@lottiefiles/react-lottie-player';
 import styled from 'styled-components';
 
 const LottieContainer = styled.div`
@@ -32,7 +32,7 @@ const LottieAnimation = ({
   useEffect(() => {
     if (playerRef.current && onComplete && !loop) {
       playerRef.current.addEventListener('complete', onComplete);
-      
+
       return () => {
         if (playerRef.current) {
           playerRef.current.removeEventListener('complete', onComplete);

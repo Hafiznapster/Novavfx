@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Batman3DCard from './Batman3DCard';
 import GreenKnight3DCard from './GreenKnight3DCard';
+import Superman3DCard from './Superman3DCard';
 
 interface GridItemProps {
   gridArea: string;
