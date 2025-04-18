@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5F5F5"/>
+      <stop offset="100%" style="stop-color:#E0E0E0"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bgGradient)"/>
+  
+  <!-- Building Columns -->
+  <g transform="translate(0,0)">
+    <rect x="100" y="50" width="80" height="500" fill="#D3D3D3"/>
+    <rect x="300" y="50" width="80" height="500" fill="#D3D3D3"/>
+    <rect x="500" y="50" width="80" height="500" fill="#D3D3D3"/>
+    <rect x="700" y="50" width="80" height="500" fill="#D3D3D3"/>
+  </g>
+  
+  <!-- Crowd Silhouettes -->
+  <g transform="translate(50,300)">
+    <!-- Row 1 -->
+    <g id="person" fill="#333">
+      <circle cx="0" cy="0" r="15"/>
+      <path d="M-10,15 L10,15 L0,50 Z"/>
+      <rect x="-5" y="15" width="10" height="35"/>
+    </g>
+    
+    <use href="#person" transform="translate(60,-10)"/>
+    <use href="#person" transform="translate(120,0)"/>
+    <use href="#person" transform="translate(180,-5)"/>
+    <use href="#person" transform="translate(240,0)"/>
+    <use href="#person" transform="translate(300,-8)"/>
+    <use href="#person" transform="translate(360,0)"/>
+    <use href="#person" transform="translate(420,-12)"/>
+    <use href="#person" transform="translate(480,0)"/>
+    <use href="#person" transform="translate(540,-6)"/>
+    
+    <!-- Row 2 -->
+    <use href="#person" transform="translate(30,40)"/>
+    <use href="#person" transform="translate(90,35)"/>
+    <use href="#person" transform="translate(150,40)"/>
+    <use href="#person" transform="translate(210,38)"/>
+    <use href="#person" transform="translate(270,40)"/>
+    <use href="#person" transform="translate(330,35)"/>
+    <use href="#person" transform="translate(390,40)"/>
+    <use href="#person" transform="translate(450,38)"/>
+    <use href="#person" transform="translate(510,40)"/>
+  </g>
+  
+  <!-- Signs -->
+  <g transform="translate(200,200)">
+    <!-- Sign 1 -->
+    <g transform="rotate(-5)">
+      <rect x="0" y="0" width="120" height="80" fill="white" stroke="#333" stroke-width="2"/>
+      <text x="60" y="45" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">CHANGE</text>
+    </g>
+    
+    <!-- Sign 2 -->
+    <g transform="translate(300,20) rotate(5)">
+      <rect x="0" y="0" width="120" height="80" fill="white" stroke="#333" stroke-width="2"/>
+      <text x="60" y="45" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">UNITY</text>
+    </g>
+    
+    <!-- Sign 3 -->
+    <g transform="translate(150,-30) rotate(-8)">
+      <rect x="0" y="0" width="120" height="80" fill="white" stroke="#333" stroke-width="2"/>
+      <text x="60" y="45" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">PEACE</text>
+    </g>
+  </g>
+</svg>
